@@ -69,7 +69,6 @@ class Rectangle:
 
     def __repr__(self):
         """method: __repr__"""
-
-        ret_str = f"Rectangle({str(self.__width)},"
-        ret_str += f"{str(self.__height)})"
+        ret_str = "Rectangle(" + str(self.__width) + ","
+        ret_str += str(self.__height) + ")"
         return ret_str
