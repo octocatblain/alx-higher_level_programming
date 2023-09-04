@@ -1,71 +1,58 @@
-The ``0-add_integer`` module
-============================
-
-Using ``add_integer``
----------------------
-
-This is an example text file in reStructuredText format. First import
-``add_integer`` from the ``0-add_integer`` module:
-
 >>> add_integer = __import__('0-add_integer').add_integer
-
-Now use it:
-
->>> add_integer(2, 3)
-5
-
->>> add_integer(100.3, -2)
+>>> add_integer(1,2)
+3
+>>> add_integer(1.0, 2.1)
+3
+>>> add_integer(0)
 98
+>>> add_integer(45, 24)
+69
+>>> add_integer(1)
+99
+>>> add_integer(.1)
+98
+>>> add_integer(-1,1)
+0
 
->>> add_integer(-True, False)
--1
+""" ERRORS """
 
->>> add_integer(-True, -False)
--1
-
->>> add_integer(True, False)
-1
-
->>> add_integer(True, -False)
-1
-
->>> add_integer(100.3, 100.3)
-200
-
->>> add_integer("school", 100.3)
+#pass in not int, a string
+>>> add_integer("poo", 2)
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer
 
->>> add_integer("Holberton", "School")
+
+#pass in not int, a list
+>>> add_integer([1], {})
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer
 
->>> add_integer(None, "School")
-Traceback (most recent call last):
-...
-TypeError: a must be an integer
 
->>> add_integer(5.25, 3.3)
-8
-
->>> add_integer(10, None)
+#pass in a string for b
+>>> add_integer(5, "hi")
 Traceback (most recent call last):
 ...
 TypeError: b must be an integer
 
->>> add_integer("adc", 10)
+
+#pass in nothing
+>>> add_integer(None)
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer
 
->>> add_integer(float('inf'),8)
+
+#converting float infinities to int errors 
+>>> add_integer(float('inf'), 2)
 Traceback (most recent call last):
 ...
 OverflowError: cannot convert float infinity to integer
 
->>> add_integer(float('NaN'), 7)
+
+#converting float NaN to int errors
+>>> add_integer(float('NaN'), 2)
 Traceback (most recent call last):
 ...
 ValueError: cannot convert float NaN to integer
