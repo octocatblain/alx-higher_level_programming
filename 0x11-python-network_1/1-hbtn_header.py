@@ -20,4 +20,8 @@ def get_header_value(url_str: str):
 
 
 if __name__ == "__main__":
+    if len(argv) != 2:
+        print("Usage: {} <URL>".format(argv[0]))
+        exit(1)
+
     get_header_value(argv[1])
