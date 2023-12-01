@@ -8,17 +8,8 @@ from urllib.error import URLError
 from urllib.parse import urlencode
 from sys import argv
 
+
 def make_post_request(url_str: str, email_arg: str):
-    """
-    Makes a POST request to the specified URL with the provided email.
-
-    Args:
-        url_str (str): The URL to make the POST request.
-        email_arg (str): The email to include in the request.
-
-    Returns:
-        None
-    """
     try:
         data = urlencode({"email": email_arg})
         email = data.encode("utf-8")
@@ -32,5 +23,9 @@ def make_post_request(url_str: str, email_arg: str):
         elif hasattr(e, "code"):
             print(e.code)
 
+
 if __name__ == "__main__":
-    make_post_request(argv[1], argv[2])
+    try:
+        make_post_request(argv[1], argv[2])
+    except IndexError:
+        raise
