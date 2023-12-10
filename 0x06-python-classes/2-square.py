@@ -1,11 +1,29 @@
 #!/usr/bin/python3
-class Square:
-    """Class Square object initialized with size."""
+"""
+Class Square: Represents a square object initialized with size.
+"""
 
-    pass
+class Square:
+    """
+    Class Square with private instance attribute size.
+
+    Attributes:
+        __size (int): The size of the square.
+
+    """
 
     def __init__(self, size=0):
-        """init method of class Square."""
+        """
+        Initialize the square with a given size.
+
+        Args:
+            size (int): The size of the square. Defaults to 0.
+
+        Raises:
+            TypeError: If size is not an integer.
+            ValueError: If size is less than 0.
+
+        """
         if type(size) != int:
             raise TypeError("size must be an integer")
         if size < 0:
